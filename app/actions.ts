@@ -5,6 +5,9 @@ import {db} from "@/db"
 
  
 export const createBlog=async(payload:CreateBlogType)=>{
-    await db.insert(blogTable).values(payload)
+    const [result]=await db.insert(blogTable).values(payload).returning({
+        id:blogTable.id
+    });
+    return result.id;
     
 }

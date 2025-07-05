@@ -36,17 +36,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-      
-        <ClerkProvider>
-          <SignedOut>
-            <div className="min-w-screen min-h-screen flex justify-center items-center">
-              <SignIn routing="hash"/>
-            </div>
-          </SignedOut>
-          <SignedIn>
-            {children}
-            </SignedIn>
-        </ClerkProvider>
+        <ClerkProvider>{children}</ClerkProvider>
       </body>
     </html>
   );
